@@ -85,6 +85,11 @@ REST_FRAMEWORK = {
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
+SPECTACULAR_SETTINGS = {
+    "TITLE": "ads-online API",
+    "DESCRIPTION": "Advertisement site",
+    "VERSION": "1.0.0",
+}
 DJOSER = {}
 
 # Database
