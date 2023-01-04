@@ -24,6 +24,7 @@ class User(AbstractBaseUser):
         default=UserRoles.USER,
     )
     image = models.ImageField()
+    is_active = models.BooleanField(default=True)
 
     @property
     def is_admin(self):
