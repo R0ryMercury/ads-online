@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    "djoser",
     "users",
     "ads",
     "redoc",
@@ -93,7 +94,10 @@ SPECTACULAR_SETTINGS = {
     "DESCRIPTION": "Advertisement site",
     "VERSION": "1.0.0",
 }
-DJOSER = {}
+DJOSER = {
+    "SERIALIZERS": {"user_create": "users.serializers.UserRegistrationSerializer"},
+    "LOGIN_FIELD": "email",
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
@@ -113,6 +117,8 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
+
+AUTH_USER_MODEL = "users.User"
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -153,6 +159,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "django_media")
 
 # CORS
 CORS_ALLOW_ALL_ORIGINS = True
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
