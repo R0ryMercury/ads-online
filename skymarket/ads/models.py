@@ -27,7 +27,7 @@ class Ad(models.Model):
         verbose_name="Автор объявления",
         help_text="Выберите автора объявления",
     )
-    created_at = models.DateField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(
         upload_to="images/",
         verbose_name="фото объявления",
