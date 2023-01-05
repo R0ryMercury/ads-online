@@ -10,10 +10,10 @@ class IsOwner(permissions.BasePermission):
             return (
                 request.user
                 and request.user.is_authenticated
-                and obj.user == request.user
+                and obj.author == request.user
             )
         return (
-            request.user and request.user.is_authenticated and obj.user == request.user
+            request.user and request.user.is_authenticated and obj.author == request.user
         )
 
 
