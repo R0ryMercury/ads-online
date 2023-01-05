@@ -31,9 +31,9 @@ class AdViewSet(viewsets.ModelViewSet):
 
     def get_permissions(self):
         permission_classes = (AllowAny,)
-        if self.action == "retrieve":
+        if self.action in ["retrieve", "list"]:
             permission_classes = (AllowAny,)
-        elif self.action != "list":
+        else:
             permission_classes = (IsOwner | IsAdmin,)
         return tuple(permission() for permission in permission_classes)
 
