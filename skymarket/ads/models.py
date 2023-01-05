@@ -39,6 +39,7 @@ class Ad(models.Model):
     class Meta:
         verbose_name = "Объявление"
         verbose_name_plural = "Объявления"
+        ordering = ["-price"]
 
 
 class Comment(models.Model):
@@ -61,7 +62,11 @@ class Comment(models.Model):
     )
     created_at = models.DateTimeField(auto_now_add=True)
 
+    @property
+    def author_image(self):
+        return self.author.image if self.author.image else None
+
     class Meta:
         verbose_name = "Комментарий"
         verbose_name_plural = "Комментарии"
-        ordering = "-created_at",
+        ordering = ("-created_at",)

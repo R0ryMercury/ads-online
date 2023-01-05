@@ -1,3 +1,4 @@
+from django.shortcuts import get_object_or_404
 from rest_framework import pagination, viewsets
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated, AllowAny
@@ -5,7 +6,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 
 from ads.permissions import IsOwner, IsAdmin
 from ads import serializers
-from ads.models import Ad
+from ads.models import Ad, Comment
 from ads.filters import AdFilter
 
 
@@ -16,7 +17,6 @@ class AdPagination(pagination.PageNumberPagination):
 class AdViewSet(viewsets.ModelViewSet):
     queryset = Ad.objects.all()
     pagination_class = AdPagination
-    permission_classes = (AllowAny,)
     filter_backends = (DjangoFilterBackend,)
     filterset_class = AdFilter
 
@@ -31,9 +31,7 @@ class AdViewSet(viewsets.ModelViewSet):
 
     def get_permissions(self):
         permission_classes = (AllowAny,)
-        if self.action in ["retrieve", "list"]:
-            permission_classes = (AllowAny,)
-        else:
+        if self.action not in ["retrieve", "list"]:
             permission_classes = (IsOwner | IsAdmin,)
         return tuple(permission() for permission in permission_classes)
 
@@ -43,9 +41,27 @@ class AdViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         if self.action == "me":
-            return Ad.objects.filter(author=self.request.user).all()
+            return self.queryset.filter(author=self.request.user).all()
         return self.queryset
 
 
 class CommentViewSet(viewsets.ModelViewSet):
-    pass
+    queryset = Comment.objects.all()
+    serializer_class = serializers.CommentSerializer
+
+    def perform_create(self, serializer):
+        ad_id = self.kwargs.get("ad_pk")
+        ad = get_object_or_404(Ad, id=ad_id)
+        user = self.request.user
+        serializer.save(author=user, ad=ad)
+
+    def get_queryset(self):
+        ad_id = self.kwargs.get("ad_pk")
+        ad_instance = get_object_or_404(Ad, id=ad_id)
+        return ad_instance.comments.all()
+
+    def get_permissions(self):
+        permission_classes = (IsAuthenticated,)
+        if self.action not in ["list", "retrieve"]:
+            permission_classes = (IsOwner | IsAdmin,)
+        return tuple(permission() for permission in permission_classes)

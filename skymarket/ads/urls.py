@@ -1,8 +1,10 @@
-from django.urls import include, path
-from rest_framework.routers import SimpleRouter
+from rest_framework_nested.routers import SimpleRouter, NestedSimpleRouter
 from ads import views
 
-ad_router = SimpleRouter()
-ad_router.register("ads", views.AdViewSet)
+ads_router = SimpleRouter()
+ads_router.register("ads", views.AdViewSet, basename="ads")
 
-urlpatterns = ad_router.urls
+comments_router = NestedSimpleRouter(ads_router, "ads", lookup="ad")
+comments_router.register("comments", views.CommentViewSet, basename="comments")
+
+urlpatterns = ads_router.urls + comments_router.urls
