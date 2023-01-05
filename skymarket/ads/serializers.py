@@ -34,6 +34,7 @@ class AdDetailSerializer(serializers.ModelSerializer):
     author_id = serializers.ReadOnlyField(source="author.id")
     author_first_name = serializers.ReadOnlyField(source="author.first_name")
     author_last_name = serializers.ReadOnlyField(source="author.last_name")
+    phone = serializerfields.PhoneNumberField(source="author.phone", read_only=True)
 
     class Meta:
         model = Ad
@@ -46,5 +47,5 @@ class AdDetailSerializer(serializers.ModelSerializer):
             "author_last_name",
             "description",
             "author_id",
-            "created_at",
+            "phone",
         )
