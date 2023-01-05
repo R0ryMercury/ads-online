@@ -42,9 +42,9 @@ class AdDetailSerializer(serializers.ModelSerializer):
             "image",
             "title",
             "price",
-            "phone",
             "author_first_name",
             "author_last_name",
             "description",
             "author_id",
+            "created_at",
         )
