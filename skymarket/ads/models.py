@@ -41,6 +41,9 @@ class Ad(models.Model):
         verbose_name_plural = "Объявления"
         ordering = ["-price"]
 
+    def __str__(self) -> str:
+        return self.title
+
 
 class Comment(models.Model):
     text = models.TextField(
