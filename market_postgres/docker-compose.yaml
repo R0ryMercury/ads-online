@@ -19,6 +19,8 @@ services:
       - frontend:/app/build
     depends_on:
       - db
+    ports:
+      - 80:80
 
   nginx:
     image: nginx:1.19.3
