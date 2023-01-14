@@ -25,3 +25,10 @@
 
 ### Главная страница
 
+Авторизация
+
+![login](https://github.com/gmoroz/ads-online/blob/master/readme_files/login.png)
+
+Регистрация
+
+![registration](https://github.com/gmoroz/ads-online/blob/master/readme_files/registration.png)
