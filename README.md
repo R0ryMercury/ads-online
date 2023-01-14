@@ -44,3 +44,7 @@
 ### Подробное описание объявления с отзывами
 
 ![ad retrieve](https://github.com/gmoroz/ads-online/blob/master/readme_files/ad_retrieve.png)
+
+### Редактирование профиля
+
+![update_profile](https://github.com/gmoroz/ads-online/blob/master/readme_files/update_profile.gif)
