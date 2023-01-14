@@ -11,7 +11,7 @@ function Footer() {
         ""
       ) : (
         <p className="footer__copyright">
-          &#169; R0rymercury 2023. All rights reserved.
+          &#169; gmoroz 2023. All rights reserved.
         </p>
       )}
     </footer>
