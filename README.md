@@ -40,3 +40,7 @@
 ### Поиск по ключевому слову
 
 ![search](https://github.com/gmoroz/ads-online/blob/master/readme_files/search.gif)
+
+### Подробное описание объявления с отзывами
+
+![ad retrieve](https://github.com/gmoroz/ads-online/blob/master/readme_files/ad_retrieve.png)
