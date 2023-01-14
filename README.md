@@ -19,11 +19,11 @@
     skymarket/manage.py migrate
     skymarket/manage.py runserver
 
-Проект будет доступен в браузере по адресу: http://0.0.0.0:3000/
+Проект будет доступен в браузере по адресу: http://localhost:3000/
 
 ## Описание проекта
 
-### Главная страница
+### Страница авторизации/регистрации
 
 Авторизация
 
@@ -32,3 +32,11 @@
 Регистрация
 
 ![registration](https://github.com/gmoroz/ads-online/blob/master/readme_files/registration.png)
+
+
+### Главная страница
+
+![main page](https://github.com/gmoroz/ads-online/blob/master/readme_files/main_page.png)
+
+### Поиск по вхождению строки
+
