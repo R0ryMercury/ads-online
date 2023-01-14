@@ -33,10 +33,10 @@
 
 ![registration](https://github.com/gmoroz/ads-online/blob/master/readme_files/registration.png)
 
-
 ### Главная страница
 
 ![main page](https://github.com/gmoroz/ads-online/blob/master/readme_files/main_page.png)
 
-### Поиск по вхождению строки
+### Поиск по ключевому слову
 
+![search](https://github.com/gmoroz/ads-online/blob/master/readme_files/search.gif)
