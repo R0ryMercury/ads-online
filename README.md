@@ -47,4 +47,8 @@
 
 ### Редактирование профиля
 
-![update_profile](https://github.com/gmoroz/ads-online/blob/master/readme_files/update_profile.gif)
+![update profile](https://github.com/gmoroz/ads-online/blob/master/readme_files/update_profile.gif)
+
+### Создание объявления
+
+![ad create](https://github.com/gmoroz/ads-online/blob/master/readme_files/ad_create.gif)
